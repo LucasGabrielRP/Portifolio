@@ -4,296 +4,756 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foco & Café - Landing Page</title>
+    <title>L. Rodrigues</title>
 
-    <link rel="shortcut icon" href="assets/icon/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icons/logo.svg" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <img src="assets/icon/logotipo.svg" alt="Logotipo Foco e Café">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <filter id="lensFilter" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceAlpha" result="alpha">
+                <feFuncA type="identity" />
+            </feComponentTransfer>
 
-        <div class="menu-toggle" aria-label="Abrir menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <feGaussianBlur in="alpha" stdDeviation="50" result="blur" />
+
+            <feDisplacementMap in="SourceGraphic" in2="blur" scale="-50" xChannelSelector="A" xChannelSelector="B"
+                yChannelSelector="A" />
+        </filter>
+    </svg>
+
+    <header>
+        <img src="assets/icons/logo.svg" alt="">
 
         <ul>
-            <li>
-                <button>
-                    <h2 class="active">Home</h2>
-                </button>
-            </li>
+            <button onclick="scrollToSection('#Home')">
+                <li class="active">
+                    <h1>Home</h1>
+                </li>
+            </button>
 
-            <li>
-                <button>
-                    <h2>O Problema</h2>
-                </button>
-            </li>
+            <button onclick="scrollToSection('#AboutMe')">
+                <li>
+                    <h1>Sobre Mim</h1>
+                </li>
+            </button>
 
-            <li>
-                <button>
-                    <h2>A Solução</h2>
-                </button>
-            </li>
+            <button onclick="scrollToSection('#MyHabilities', '25vh')">
+                <li>
+                    <h1>Habilidades</h1>
+                </li>
+            </button>
 
-            <li>
-                <button>
-                    <h2>Serviços</h2>
-                </button>
-            </li>
-
-            <li>
-                <button>
-                    <h2>Formulário</h2>
-                </button>
-            </li>
-
-            <li>
-                <h2>Em Breve em BH</h2>
-            </li>
+            <button onclick="scrollToSection('#MyProjects', '-25vh')">
+                <li>
+                    <h1>Projetos</h1>
+                </li>
+            </button>
         </ul>
+
+        <button onclick="scrollToSection('#ContactMe', '15vh')">
+            <div>
+                <img src="assets/icons/contact.svg" alt="">
+                <h1>Contato</h1>
+            </div>
+        </button>
     </header>
 
-    <section id="Home">
-        <div class="bannerImg">
-            <img src="assets/images/banner.jpg" alt="Banner do café">
+    <div id="smoothWrapper">
+        <div id="smoothContent">
+            <div class="box" data-speed="0.5">
+                <section class="banner" id="Home">
+                    <div class="title">
+                        <img src="assets/icons/logo.svg" alt="">
+                        <h1>Olá, meu nome é</h1>
+                    </div>
+
+                    <hgroup>
+                        <h1>Lucas Gabriel</h1>
+                        <div>
+                            <h2>Rodrigues Pereira</h2>
+                            <figure>
+                                <div></div>
+                            </figure>
+                        </div>
+                    </hgroup>
+
+                    <h3>Estudante Full Stack</h3>
+
+                    <button class="bodyMain" onclick="scrollToSection('#AboutMe')">
+                        <h4>Sobre Mim</h4>
+                    </button>
+                </section>
+            </div>
+
+            <main>
+                <figure></figure>
+
+                <section class="about" id="AboutMe">
+                    <div class="title">
+                        <img src="assets/icons/logo.svg" alt="">
+                        <h1>Um pouco sobre mim</h1>
+                    </div>
+
+                    <h2>
+                        Minha trajetória, meus interesses e meus objetivos
+                    </h2>
+
+                    <div class="aboutGrid">
+                        <hgroup>
+                            <hgroup>
+                                <h2>
+                                    Sou de Belo Horizonte, Minas Gerais, e atualmente sou estudante do Cotemig. Sempre
+                                    tive
+                                    curiosidade em entender como a tecnologia funciona, desde a lógica por trás dos
+                                    programas até a experiência visual que uma interface proporciona.
+                                </h2>
+
+                                <h2>
+                                    Meu interesse por design começou durante a pandemia, quando passei a explorar o
+                                    Photoshop e a experimentar com imagens. A programação também sempre despertou minha
+                                    curiosidade, especialmente pela influência de familiares que trabalham na área. Foi
+                                    no
+                                    Cotemig que comecei a desenvolver esse interesse de forma mais prática, aprofundando
+                                    meus conhecimentos em lógica de programação e desenvolvimento de software.
+                                </h2>
+
+                                <h2>
+                                    Hoje, gosto de unir esses dois mundos: criar interfaces visualmente interessantes,
+                                    pensar em como as pessoas vão utilizá-las e transformar ideias em projetos
+                                    funcionais.
+                                    Tenho facilidade para aprender, gosto de identificar erros e encontrar oportunidades
+                                    de
+                                    melhoria, tanto no código quanto no design.
+                                </h2>
+
+                                <h2>
+                                    Meu objetivo é continuar evoluindo, ampliar meus conhecimentos e construir uma
+                                    carreira
+                                    como desenvolvedor Full Stack, sem deixar de lado a criatividade e a atenção à
+                                    experiência do usuário.
+                                </h2>
+
+                                <h2>
+                                    Fora da tecnologia, também gosto de carros, futebol e super-heróis, interesses que
+                                    fazem parte de quem sou além dos códigos e das telas.
+                                </h2>
+
+                            </hgroup>
+
+                            <div>
+                                <button class="bodyMain" onclick="scrollToSection('#MyHabilities', '25vh')">
+                                    <h4>Veja minhas habilidades</h4>
+                                </button>
+
+                                <button class="bodySecondary" onclick="scrollToSection('#ContactMe', '15vh')">
+                                    <h4>Entre em contato</h4>
+                                </button>
+                            </div>
+                        </hgroup>
+
+                        <div>
+                            <img src="assets/images/MyPhoto.png" alt="">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="myHabilities" id="MyHabilities">
+                    <div class="title">
+                        <img src="assets/icons/logo.svg" alt="">
+                        <h1>Minhas habilidades</h1>
+                    </div>
+
+                    <section>
+                        <h2>
+                            Design Gráfico
+                        </h2>
+
+                        <div class="rowCards" id="desginCards">
+                            <div class="controlArrows">
+                                <button class="controlCards">
+                                    <svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.840308 0.715808C1.96082 -0.238685 3.77732 -0.23852 4.89794 0.715808L23.1595 16.2718C24.2802 17.2263 24.2802 18.7737 23.1595 19.7282L4.89794 35.2842C3.77732 36.2385 1.96082 36.2387 0.840308 35.2842C-0.2802 34.3297 -0.280006 32.7823 0.840308 31.8277L16.1794 18.7612C16.6482 18.362 16.6482 17.638 16.1794 17.2388L0.840308 4.17226C-0.280006 3.21767 -0.2802 1.6703 0.840308 0.715808Z" />
+                                    </svg>
+                                </button>
+
+                                <button class="controlCards">
+                                    <svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.840308 0.715808C1.96082 -0.238685 3.77732 -0.23852 4.89794 0.715808L23.1595 16.2718C24.2802 17.2263 24.2802 18.7737 23.1595 19.7282L4.89794 35.2842C3.77732 36.2385 1.96082 36.2387 0.840308 35.2842C-0.2802 34.3297 -0.280006 32.7823 0.840308 31.8277L16.1794 18.7612C16.6482 18.362 16.6482 17.638 16.1794 17.2388L0.840308 4.17226C-0.280006 3.21767 -0.2802 1.6703 0.840308 0.715808Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="rowCard" id="cardLr">
+                                <img src="assets/images/CardLr.jpg" alt="">
+                                <hgroup>
+                                    <h3>Adobe Lightroom</h3>
+                                    <h4>
+                                        Utilizo o Lightroom Mobile para editar minhas próprias fotografias, ajustando
+                                        iluminação, cores e outros aspectos da imagem. Também exploro máscaras e
+                                        desfoques para destacar elementos e construir um estilo visual próprio. Ainda
+                                        estou aprimorando minhas técnicas e ampliando meus conhecimentos em edição.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardAi">
+                                <img src="assets/images/CardAI.jpg" alt="">
+                                <hgroup>
+                                    <h3>Adobe Illustrator</h3>
+                                    <h4>
+                                        Tenho conhecimentos básicos de criação vetorial, com foco no desenvolvimento de
+                                        logotipos e ícones. Utilizo o Illustrator para construir elementos gráficos
+                                        simples e funcionais, buscando aprimorar minha técnica e ganhar mais prática.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard active" id="cardPs">
+                                <img src="assets/images/CardPS.jpg" alt="">
+                                <hgroup>
+                                    <h3>Adobe Photoshop</h3>
+                                    <h4>
+                                        Tenho experiência com o Photoshop desde aproximadamente 2020, explorando
+                                        montagens, manipulação e tratamento de imagens, máscaras e filtros. Gosto de
+                                        combinar elementos de forma visualmente coerente e continuo desenvolvendo minhas
+                                        habilidades, aprendendo novas técnicas e possibilidades da ferramenta.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardFigma">
+                                <img src="assets/images/CardFigma.jpg" alt="">
+                                <hgroup>
+                                    <h3>Figma</h3>
+                                    <h4>
+                                        É uma das ferramentas com as quais tenho mais familiaridade. Desenvolvo
+                                        protótipos de sites e aplicativos, componentes e animações, pensando tanto na
+                                        apresentação visual quanto na futura implementação em HTML e CSS. Busco
+                                        transformar ideias em interfaces organizadas, consistentes e viáveis de
+                                        desenvolver.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardUIUX">
+                                <img src="assets/images/CardUIUX.jpg" alt="">
+                                <hgroup>
+                                    <h3>UI/UX</h3>
+                                    <h4>
+                                        Ao projetar uma interface, procuro pensar em como as pessoas realmente vão
+                                        utilizá-la. Valorizo a facilidade de navegação, a clareza das ações, a
+                                        acessibilidade e a organização visual, buscando criar experiências práticas e
+                                        agradáveis para diferentes usuários.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>
+                            Linguagens de Programação
+                        </h2>
+
+                        <div class="rowCards" id="languagesCards">
+                            <div class="controlArrows">
+                                <button class="controlCards">
+                                    <svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.840308 0.715808C1.96082 -0.238685 3.77732 -0.23852 4.89794 0.715808L23.1595 16.2718C24.2802 17.2263 24.2802 18.7737 23.1595 19.7282L4.89794 35.2842C3.77732 36.2385 1.96082 36.2387 0.840308 35.2842C-0.2802 34.3297 -0.280006 32.7823 0.840308 31.8277L16.1794 18.7612C16.6482 18.362 16.6482 17.638 16.1794 17.2388L0.840308 4.17226C-0.280006 3.21767 -0.2802 1.6703 0.840308 0.715808Z" />
+                                    </svg>
+                                </button>
+
+                                <button class="controlCards">
+                                    <svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.840308 0.715808C1.96082 -0.238685 3.77732 -0.23852 4.89794 0.715808L23.1595 16.2718C24.2802 17.2263 24.2802 18.7737 23.1595 19.7282L4.89794 35.2842C3.77732 36.2385 1.96082 36.2387 0.840308 35.2842C-0.2802 34.3297 -0.280006 32.7823 0.840308 31.8277L16.1794 18.7612C16.6482 18.362 16.6482 17.638 16.1794 17.2388L0.840308 4.17226C-0.280006 3.21767 -0.2802 1.6703 0.840308 0.715808Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="rowCard" id="cardJs">
+                                <img src="assets/images/CardJS.jpg" alt="">
+                                <hgroup>
+                                    <h3>Java Script</h3>
+                                    <h4>
+                                        Estou desenvolvendo meus conhecimentos em JavaScript, aplicando a linguagem em
+                                        funcionalidades de interfaces, como modais, cálculos, máscaras de formulários e
+                                        carrosséis. Também já explorei bibliotecas e efeitos mais elaborados, buscando
+                                        compreender como o código funciona e como aprimorá-lo.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard active" id="cardCs">
+                                <img src="assets/images/CardCs.jpg" alt="">
+                                <hgroup>
+                                    <h3>C#</h3>
+                                    <h4>
+                                        Estudo lógica de programação e estou avançando na programação orientada a
+                                        objetos. Já desenvolvi programas básicos envolvendo jogos de adivinhação,
+                                        cálculos matemáticos, juros, IMC, financiamento e conversão de médias,
+                                        trabalhando a lógica necessária para resolver problemas por meio do código.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardPy">
+                                <img src="assets/images/CardPy.jpg" alt="">
+                                <hgroup>
+                                    <h3>Pyhton</h3>
+                                    <h4>
+                                        Estudei Python durante aproximadamente um ano, desenvolvendo programas básicos e
+                                        construindo uma base inicial de programação. Atualmente, estou concentrando meus
+                                        estudos em outras tecnologias, mas pretendo retomar a linguagem futuramente.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardHtml">
+                                <img src="assets/images/CardHTML.jpg" alt="">
+                                <hgroup>
+                                    <h3>HTML</h3>
+                                    <h4>
+                                        Desenvolvo páginas a partir de protótipos, buscando reproduzir as interfaces
+                                        planejadas no Figma. Tenho conhecimentos de estruturação, estilização e
+                                        responsividade básica, e continuo aprimorando a organização do código e sua
+                                        adaptação a diferentes tamanhos de tela.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardMySQL">
+                                <img src="assets/images/CardMySQL.jpg" alt="">
+                                <hgroup>
+                                    <h3>Banco de dados (MySQL)</h3>
+                                    <h4>
+                                        Tenho conhecimentos introdutórios de banco de dados, incluindo consultas, buscas
+                                        em tabelas e utilização de INNER JOIN. Continuo desenvolvendo minha compreensão
+                                        sobre consultas e manipulação de dados.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="rowCard" id="cardOutros">
+                                <img src="assets/images/CardOutros.jpg" alt="">
+                                <hgroup>
+                                    <h3> Outras tecnologias</h3>
+                                    <h4>
+                                        Também tive contato com WordPress e Git. Pretendo aprofundar meus conhecimentos
+                                        nessas ferramentas e estudar novas tecnologias, como PHP e C++, para ampliar
+                                        minhas possibilidades no desenvolvimento de software.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="myProjects" id="MyProjects">
+                    <section class="rotatingCards">
+                        <div class="rotatingCard">
+                            <img src="assets/images/SpinningCardDiablo.jpg" alt="">
+                            <img src="assets/images/SpinningCardRooftop.jpg" alt="">
+                        </div>
+
+                        <div class="rotatingCard">
+                            <img src="assets/images/SpinningCardCalculator.jpg" alt="">
+                            <img src="assets/images/SpinningCardPeriodicTable.jpg" alt="">
+                        </div>
+
+                        <div class="rotatingCard">
+                            <img src="assets/images/SpinningCardUrban.jpg" alt="">
+                            <img src="assets/images/SpinningCardPort.jpg" alt="">
+                        </div>
+                    </section>
+
+                    <div class="planetProject"></div>
+
+                    <div class="backgroundGradientProject"></div>
+
+                    <section class="contentProjects">
+                        <hgroup class="sectName">
+                            <div class="title">
+                                <img src="assets/icons/logo.svg" alt="">
+                                <h1>Meus Projetos</h1>
+                            </div>
+
+                            <h2>
+                                Ideias, experiências e projetos que fazem parte da minha evolução
+                            </h2>
+                        </hgroup>
+
+                        <div class="projectsGrid">
+                            <div class="project" id="projPort">
+                                <hgroup>
+                                    <h3>Portifólio SO</h3>
+                                    <h4>
+                                        Um projeto que propõe transformar meu portfólio em uma experiência inspirada em
+                                        um sistema operacional. O protótipo no Figma apresenta uma área de trabalho, um
+                                        explorador de arquivos, um navegador e um menu Iniciar, cada um com uma função
+                                        dentro da experiência.
+                                    </h4>
+
+                                    <h4>
+                                        A proposta é organizar projetos de programação em pastas no explorador de
+                                        arquivos e apresentar projetos de front-end por meio do navegador simulado. A
+                                        codificação está em desenvolvimento, com planos de expandir o ambiente.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Protótipo</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="project" id="projDiablo">
+                                <hgroup>
+                                    <h3>Diablo Energy</h3>
+                                    <h4>
+                                        Projeto escolar de um e-commerce fictício de bebidas energéticas, planejado no
+                                        Figma e desenvolvido em HTML. O projeto contempla páginas de apresentação,
+                                        produtos, produto em destaque, sobre a marca, contato, conta de usuário,
+                                        carrinho e uma landing page.
+                                    </h4>
+
+                                    <h4>
+                                        A versão atual é principalmente visual: as funcionalidades interativas em
+                                        JavaScript ainda não foram implementadas.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projeto</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="project" id="projCalc">
+                                <hgroup>
+                                    <h3>Calculadora</h3>
+                                    <h4>
+                                        Projeto pessoal desenvolvido para praticar JavaScript e explorar a criação de
+                                        uma interface interativa. A calculadora realiza operações de soma, subtração,
+                                        multiplicação e divisão, incluindo números decimais, apresenta a operação
+                                        completa e seu resultado e conta com validações para evitar erros comuns de
+                                        utilização.
+                                    </h4>
+
+                                    <h4>
+                                        Também possui modos claro e escuro e modais para menus. Pretendo ampliar o
+                                        projeto futuramente com operações e recursos matemáticos mais avançados.
+                                    </h4>
+
+                                    <button>
+                                        <h5>Ver Projeto</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="project" id="projTabP">
+                                <hgroup>
+                                    <h3>Tabela Periódica</h3>
+                                    <h4>
+                                        Uma tabela periódica interativa que reúne os elementos químicos e permite
+                                        explorar suas informações por meio de diferentes interações. O usuário pode
+                                        filtrar elementos por categoria, destacar elementos ao passar o cursor e
+                                        selecionar cada elemento para visualizar suas características.
+                                    </h4>
+
+                                    <h4>
+                                        A interface também apresenta uma representação visual da eletrosfera ao
+                                        selecionar um elemento. Os SVGs utilizados nessas representações foram criados
+                                        por mim no Figma.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projeto</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="project" id="projRoofTop">
+                                <hgroup>
+                                    <h3>RoofTop Restaurant</h3>
+                                    <h4>
+                                        Projeto desenvolvido em uma atividade de aprendizagem sobre posicionamento de
+                                        elementos com CSS. Partindo de um modelo de referência, fiz modificações na
+                                        estilização para explorar a composição visual e melhorar a apresentação da
+                                        página.
+                                    </h4>
+
+                                    <h4>
+                                        Foi uma experiência prática de HTML e CSS, com foco na estruturação e no
+                                        posicionamento dos elementos da interface.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projeto</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="project" id="projUrban">
+                                <hgroup>
+                                    <h3>Urban Grid</h3>
+                                    <h4>
+                                        Projeto de identidade para uma marca de roupas com proposta urbana, acompanhado
+                                        de um conceito de e-commerce. As primeiras telas estão sendo desenvolvidas no
+                                        Figma, com foco na construção da identidade visual e na organização das páginas
+                                        da loja.
+                                    </h4>
+
+                                    <h4>
+                                        O projeto ainda está em fase inicial e será expandido à medida que a identidade
+                                        e as interfaces forem desenvolvidas.
+                                    </h4>
+                                    <button disabled>
+                                        <h5>Projeto em andamento</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+                        </div>
+
+                        <h2>
+                            Design Gráfico
+                        </h2>
+
+                        <div class="designGrafico">
+                            <div class="App" id="Ai">
+                                <hgroup>
+                                    <h3>Adobe Ilustrator</h3>
+                                    <h4>
+                                        Criação vetorial de logotipos e ícones, explorando formas, composição e
+                                        identidade visual. Esta seção reúne trabalhos que demonstram minha experiência
+                                        inicial com desenho vetorial.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="App" id="Ps">
+                                <hgroup>
+                                    <h3>Adobe Photoshop</h3>
+                                    <h4>
+                                        Montagens, manipulações e tratamento de imagens, com uso de máscaras, filtros e
+                                        composição visual. Esta seção apresenta trabalhos que exploram a edição e a
+                                        combinação de elementos gráficos.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+
+                            <div class="App" id="Lr">
+                                <hgroup>
+                                    <h3>Adobe Lightroom</h3>
+                                    <h4>
+                                        Fotografias autorais editadas no Lightroom Mobile, com ajustes de iluminação,
+                                        cores, máscaras e desfoque. Busco desenvolver um estilo próprio e aprimorar a
+                                        forma como cada imagem comunica sua ideia.
+                                    </h4>
+                                    <button>
+                                        <h5>Ver Projetos</h5>
+                                    </button>
+                                </hgroup>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="contactMe" id="ContactMe">
+                    <hgroup class="sectName">
+                        <div class="title">
+                            <img src="assets/icons/logo.svg" alt="">
+                            <h1>Entre em contato</h1>
+                        </div>
+
+                        <h2>
+                            Vamos conversar? </h2>
+                    </hgroup>
+
+                    <div class="gridContact">
+                        <div class="formContainerWrapper">
+                            <form action="https://formspree.io/f/mgaoyvbb" method="POST" id="contactForm">
+                            <!-- <form action="" method="POST" id="contactForm"> -->
+                                <hgroup>
+                                    <h1>Entre em contato</h1>
+
+                                    <h2>
+                                        Tem uma ideia, um projeto ou quer trocar experiências sobre tecnologia e design?
+                                        Entre em contato! Vou gostar de conhecer sua proposta e conversar sobre novas
+                                        possibilidades.
+                                    </h2>
+
+                                    <h2>
+                                        Conte um pouco sobre o que você precisa. Assim, posso entender melhor sua ideia
+                                        e
+                                        responder da forma mais adequada.
+                                        <span>* indica um campo obrigatório</span>
+                                    </h2>
+                                </hgroup>
+
+                                <div>
+                                    <input type="text" name="name" required placeholder="Nome *">
+                                    <input type="email" name="email" required placeholder="Email *">
+                                    <input type="tel" name="tel" required placeholder="Telefone *" id="telInput"
+                                        oninput="telMask(this)">
+                                    <textarea name="message" required placeholder="Descrição *"></textarea>
+                                </div>
+
+                                <button type="submit" class="bodyMain">
+                                    <h5>Enviar</h5>
+                                </button>
+                            </form>
+
+                            <div id="successCard" class="success-card">
+                                <hgroup>
+                                    <h1>Obrigado!</h1>
+                                    <h2>
+                                        Sua mensagem foi enviada com sucesso. Em breve entrarei em contato!
+                                    </h2>
+                                </hgroup>
+                            </div>
+                        </div>
+
+                        <div class="linkWrapper">
+                            <a href="https://github.com/LucasGabrielRP" target="_blank">
+                                <img src="assets/icons/github.svg" alt="">
+                                <hgroup>
+                                    <h1>GitHub</h1>
+                                    <h2>LucasGabrielRP</h2>
+                                </hgroup>
+                            </a>
+
+                            <a disabled>
+                                <img src="assets/icons/linkedin.svg" alt="">
+                                <hgroup>
+                                    <h1>LinkedIn</h1>
+                                </hgroup>
+                            </a>
+
+                            <a href="https://instagram.com/lucas.g_rodrigues" target="_blank">
+                                <img src="assets/icons/instagram.svg" alt="">
+                                <hgroup>
+                                    <h1>Instagram</h1>
+                                    <h2>@lucas.g_rodrigues</h2>
+                                </hgroup>
+                            </a>
+
+                            <a href="mailto:rp.LucasGabriel@gmail.com" target="_blank">
+                                <img src="assets/icons/email.svg" alt="">
+                                <hgroup>
+                                    <h1>Email</h1>
+                                    <h2>rp.LucasGabriel@gmail.com</h2>
+                                </hgroup>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer>
+                    <img src="assets/icons/logo.svg" alt="">
+
+                    <hgroup>
+                        <h1>"Aprendendo, criando e transformando ideias em projetos, um passo de cada vez."</h1>
+                        <div>
+                            <h2>Todos os Direitos Reservados | Feito por Lucas Gabriel Rodigues Pereira</h2>
+                            <a href="https://www.instagram.com/lucas.g_rodrigues/"
+                                target="_blank">@lucas.g_rodrigues</a>
+                        </div>
+                    </hgroup>
+                </footer>
+            </main>
         </div>
+    </div>
 
-        <div class="content">
-            <hgroup>
-                <h3 class="fade-up stagger-1">
-                    * essa Landing Page faz parte de um projeto escolar do Cotemig
-                </h3>
+    <!-- <div class="languagesCards">
+        <div id="modalLanguages">
+            <button>
+                <img src="assets/icons/espanha.png" alt="">
+                <h1>Español</h1>
+            </button>
 
-                <h1 class="fade-up stagger-2">
-                    Seu próximo grande projeto merece um lugar à altura.
-                </h1>
+            <button>
+                <img src="assets/icons/estados-unidos.png" alt="">
+                <h1>English</h1>
+            </button>
 
-                <h2 class="fade-up stagger-3">
-                    Um refúgio urbano onde o café encontra a concentração, as boas ideias e o conforto de trabalhar no
-                    seu
-                    ritmo.
-                </h2>
-            </hgroup>
+            <button>
+                <img src="assets/icons/franca.png" alt="">
+                <h1>Français</h1>
+            </button>
 
-            <button class="fade-up stagger-4">
-                Descobra mais sobre nós
+            <button>
+                <img src="assets/icons/italia.png" alt="">
+                <h1>Italiano</h1>
+            </button>
+
+            <button class="active">
+                <img src="assets/icons/brasil.png" alt="">
+                <h1>Potuguês</h1>
             </button>
         </div>
-    </section>
 
-    <main>
-        <section id="theProblem">
-            <hgroup class="fade-up">
-                <h1>
-                    Trabalhar fora
-                    de casa nem sempre significa encontrar foco.
-                </h1>
-            </hgroup>
+        <button id="langugageButton">
+            <img src="assets/icons/Language.svg" alt="">
+            <h1>Idioma</h1>
+        </button>
+    </div> -->
 
-            <ul>
-                <li class="fade-up stagger-1">
-                    <div>
-                        <img src="assets/icon/home.svg" alt="Em casa">
-                        <h1>Em casa</h1>
-                    </div>
-                    <h2>As distrações aparecem justamente quando você precisa se concentrar.</h2>
-                </li>
-
-                <li class="fade-up stagger-2">
-                    <div>
-                        <img src="assets/icon/coffeeCup.svg" alt="Na cafeteria">
-                        <h1>Na cafeteria</h1>
-                    </div>
-                    <h2>O café é bom, mas o barulho nem sempre combina com o trabalho.</h2>
-                </li>
-
-                <li class="fade-up stagger-3">
-                    <div>
-                        <img src="assets/icon/coworking.svg" alt="No coworking">
-                        <h1>No coworking</h1>
-                    </div>
-                    <h2>Você encontra estrutura profissional, mas pode sentir falta de um ambiente mais acolhedor.</h2>
-                </li>
-            </ul>
-        </section>
-
-        <section id="theSoluction">
-            <hgroup class="fade-up">
-                <h1>O equilíbrio entre produzir e respirar.</h1>
-
-                <h2>
-                    A Foco & Café nasce para unir o melhor de uma cafeteria acolhedora à estrutura necessária para
-                    transformar tempo de trabalho em tempo bem aproveitado.
-                </h2>
-            </hgroup>
-
-            <div class="cardsWrap">
-                <div class="card fade-up stagger-1">
-                    <hgroup>
-                        <div class="cardIcon">
-                            <img src="assets/icon/coffee.svg" alt="Café e acolhimento">
-                        </div>
-
-                        <h1>Café e acolhimento</h1>
-                    </hgroup>
-
-                    <h2>
-                        Bebidas, lanches e um ambiente confortável para fazer uma pausa ou começar o dia.
-                    </h2>
-                </div>
-
-                <div class="card fade-up stagger-2">
-                    <hgroup>
-                        <div class="cardIcon">
-                            <img src="assets/icon/computer.svg" alt="Foco e estrutura">
-                        </div>
-
-                        <h1>Foco e estrutura</h1>
-                    </hgroup>
-
-                    <h2>
-                        Mesas adequadas, internet, tomadas e um espaço pensado para trabalhar.
-                    </h2>
-                </div>
-
-                <div class="card fade-up stagger-3">
-                    <hgroup>
-                        <div class="cardIcon">
-                            <img src="assets/icon/practicality.svg" alt="Conexão e praticidade">
-                        </div>
-
-                        <h1>Conexão e praticidade</h1>
-                    </hgroup>
-
-                    <h2>
-                        Salas privativas para reuniões, reservas digitais e uma experiência de atendimento mais ágil.
-                    </h2>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <h1 class="fade-up">O que nosso café lhe proporcionará?</h1>
-
-            <div class="cardsWrap">
-                <div class="card fade-up">
-                    <img src="assets/images/photo_01.jpg" alt="Tomar um café">
-
-                    <hgroup>
-                        <h1>Tomar um café com tranquilidade</h1>
-                        <h2>Café da manhã, bebidas e lanches em um ambiente acolhedor.</h2>
-                    </hgroup>
-                </div>
-
-                <div class="card fade-up">
-                    <hgroup>
-                        <h1>Café da manhã, bebidas e lanches em um ambiente acolhedor.</h1>
-                        <h2>Um espaço com internet, tomadas e mesas adequadas para suas atividades.</h2>
-                    </hgroup>
-
-                    <img src="assets/images/photo_02.jpg" alt="Espaço de trabalho">
-                </div>
-
-                <div class="card fade-up">
-                    <img src="assets/images/photo_03.jpg" alt="Salas privativas">
-
-                    <hgroup>
-                        <h1>Um espaço com internet, tomadas e mesas adequadas para suas atividades.</h1>
-                        <h2>Salas privativas planejadas para reuniões e conversas profissionais.</h2>
-                    </hgroup>
-                </div>
-
-                <div class="card fade-up">
-                    <hgroup>
-                        <h1>Resolver tudo com praticidade</h1>
-                        <h2>A proposta inclui pedidos digitais e reservas online para facilitar a experiência.</h2>
-                    </hgroup>
-
-                    <img src="assets/images/photo_04.jpg" alt="Praticidade">
-                </div>
-            </div>
-        </section>
-
-        <section id="forms">
-            <form action="" class="fade-up stagger-1">
-                <input type="email" placeholder="seu e-mail" required>
-
-                <hgroup>
-                    <h3>O que mais te interessa? (opcional)</h3>
-
-                    <div>
-                        <input type="radio" name="interesse" id="foco" required>
-                        <label for="foco">Trabalhar ou estudar com foco</label>
-
-                        <input type="radio" name="interesse" id="reservas" required>
-                        <label for="reservas">Reservar salas para reuniões</label>
-
-                        <input type="radio" name="interesse" id="cafe" required>
-                        <label for="cafe">Tomar café e relaxar</label>
-
-                        <input type="radio" name="interesse" id="eventos" required>
-                        <label for="eventos">Planos para empresas e eventos</label>
-                    </div>
-                </hgroup>
-
-                <div>
-                    <input type="checkbox" name="" id="politica" required>
-                    <label for="politica">Aceito receber novidades e comunicações sobre o lançamento por e-mail. Li a
-                        política de privacidade.</label>
-
-                    <button>
-                        Quero ajudar
-                    </button>
-                </div>
-            </form>
-
-            <hgroup class="fade-up stagger-2">
-                <div>
-                    <h1>
-                        Faça parte do começo.
-                    </h1>
-
-                    <h2>
-                        Nos ajude a tirar essa ideia do papel
-                    </h2>
-                </div>
-
-                <div>
-                    <h2>
-                        Deseja entar em contato?
-                    </h2>
-
-                    <h3>
-                        E-mail: <span>rp.lucasgabriel@gmail.com</span>
-                    </h3>
-                </div>
-            </hgroup>
-        </section>
-    </main>
-
-    <footer>
-        <img src="assets/icon/logotipo.svg" alt="Logotipo Foco e Café">
-        <h2>
-            Foco & Café - Todos os Direitos Reservados | Feito por <a
-                href="https://www.instagram.com/lucas.g_rodrigues/?__pwa=1" target="_blank">@lucas.g_rodrigues</a>
-        </h2>
-    </footer>
+    <!-- Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
 
     <script src="script.js"></script>
 </body>
