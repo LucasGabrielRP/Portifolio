@@ -7,6 +7,8 @@
     <title>L. Rodrigues</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    
     <link rel="shortcut icon" href="assets/icons/logo.svg" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,10 +67,16 @@
             </button>
         </ul>
 
-        <button onclick="scrollToSection('#ContactMe', '15vh')">
+        <button onclick="scrollToSection('#ContactMe', '15vh')" id="ContactHeader">
             <div>
                 <img src="assets/icons/contact.svg" alt="">
                 <h1>Contato</h1>
+            </div>
+        </button>
+
+        <button id="MenuHeader">
+            <div>
+                <img src="assets/icons/burgerMenu.svg" alt="">
             </div>
         </button>
     </header>
@@ -86,9 +94,9 @@
                         <h1>Lucas Gabriel</h1>
                         <div>
                             <h2>Rodrigues Pereira</h2>
-                            <figure>
+                            <!-- <figure>
                                 <div></div>
-                            </figure>
+                            </figure> -->
                         </div>
                     </hgroup>
 
@@ -167,7 +175,7 @@
                         </hgroup>
 
                         <div>
-                            <img src="assets/images/MyPhoto.png" alt="">
+                            <img src="assets/images/MyPhoto_02.png" alt="">
                         </div>
                     </div>
                 </section>
