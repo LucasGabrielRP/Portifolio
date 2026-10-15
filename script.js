@@ -33,12 +33,69 @@ window.scrollToSection = function (targetId, offsetY = 0) {
   }
 };
 
-// .active header li
+// Mobile Menu Functionality
+const menuHeaderBtn = document.querySelector('#MenuHeader');
+const closeNavBtn = document.querySelector('#CloseNav');
+const navMenu = document.querySelector('nav');
+const mobileNavLinks = document.querySelectorAll('nav ul button, nav #ContactNav');
+
+function openMobileMenu() {
+  if (navMenu) {
+    navMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (smoother && typeof smoother.paused === 'function') {
+      smoother.paused(true);
+    }
+  }
+}
+
+function closeMobileMenu() {
+  if (navMenu) {
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+    if (smoother && typeof smoother.paused === 'function') {
+      smoother.paused(false);
+    }
+  }
+}
+
+if (menuHeaderBtn) {
+  menuHeaderBtn.addEventListener('click', openMobileMenu);
+}
+
+if (closeNavBtn) {
+  closeNavBtn.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu when clicking navigation options inside nav
+mobileNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+});
+
+// Close menu with Escape key
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
+
+// .active header li & mobile nav li synchronization
 const sections = ["#Home", "#AboutMe", "#MyHabilities", "#MyProjects"];
-const navItems = document.querySelectorAll("header ul li");
+const desktopNavItems = document.querySelectorAll("header ul li");
+const mobileNavItems = document.querySelectorAll("nav ul li");
 
 function updateActiveItem(activeIndex) {
-  navItems.forEach((item, index) => {
+  desktopNavItems.forEach((item, index) => {
+    if (index === activeIndex) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+
+  mobileNavItems.forEach((item, index) => {
     if (index === activeIndex) {
       item.classList.add("active");
     } else {
@@ -77,6 +134,7 @@ ScrollTrigger.create({
   onEnter: () => updateActiveItem(-1),
   onLeaveBack: () => updateActiveItem(3)
 });
+
 // Carousel Cards
 const carousels = document.querySelectorAll('.rowCards');
 
@@ -127,11 +185,6 @@ carousels.forEach(carousel => {
     cards.forEach(card => card.classList.remove('active'));
     const middleIndex = Math.floor(cards.length / 2);
     cards[middleIndex].classList.add('active');
-  }
-
-  function getShiftAmount() {
-    const cards = Array.from(carousel.querySelectorAll('.rowCard'));
-    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
   }
 
   function moveNext(dragOffset = 0, count = 1) {
@@ -317,23 +370,6 @@ carousels.forEach(carousel => {
   startAutoPlay();
 });
 
-// // Modal Language
-// const languageButton = document.getElementById('langugageButton');
-// const modalLanguages = document.getElementById('modalLanguages');
-
-// languageButton.addEventListener('click', (event) => {
-//   event.stopPropagation();
-//   modalLanguages.classList.toggle('active');
-// });
-
-// document.addEventListener('click', (event) => {
-//   if (modalLanguages.classList.contains('active')) {
-//     if (!modalLanguages.contains(event.target) && !languageButton.contains(event.target)) {
-//       modalLanguages.classList.remove('active');
-//     }
-//   }
-// });
-
 // links botões
 const links = document.querySelectorAll('.action-btn');
 links.forEach(botao => {
@@ -392,7 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector('#contactForm');
   const successCard = document.querySelector('#successCard');
 
-  if (form && successCard) {
+  if (form && successCard, form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 

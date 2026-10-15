@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    
+
     <link rel="shortcut icon" href="assets/icons/logo.svg" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,6 +80,45 @@
             </div>
         </button>
     </header>
+
+    <nav>
+        <button id="CloseNav">
+            <img src="assets/icons/exit.svg" alt="">
+        </button>
+
+        <ul>
+            <button onclick="scrollToSection('#Home')">
+                <li class="active">
+                    <h1>Home</h1>
+                </li>
+            </button>
+
+            <button onclick="scrollToSection('#AboutMe')">
+                <li>
+                    <h1>Sobre Mim</h1>
+                </li>
+            </button>
+
+            <button onclick="scrollToSection('#MyHabilities', '25vh')">
+                <li>
+                    <h1>Habilidades</h1>
+                </li>
+            </button>
+
+            <button onclick="scrollToSection('#MyProjects', '-25vh')">
+                <li>
+                    <h1>Projetos</h1>
+                </li>
+            </button>
+        </ul>
+
+        <button onclick="scrollToSection('#ContactMe', '15vh')" id="ContactNav">
+            <div>
+                <img src="assets/icons/contact.svg" alt="">
+                <h1>Contato</h1>
+            </div>
+        </button>
+    </nav>
 
     <div id="smoothWrapper">
         <div id="smoothContent">
@@ -632,7 +671,7 @@
                     <div class="gridContact">
                         <div class="formContainerWrapper">
                             <form action="https://formspree.io/f/mgaoyvbb" method="POST" id="contactForm">
-                            <!-- <form action="" method="POST" id="contactForm"> -->
+                                <!-- <form action="" method="POST" id="contactForm"> -->
                                 <hgroup>
                                     <h1>Entre em contato</h1>
 
@@ -651,11 +690,11 @@
                                 </hgroup>
 
                                 <div>
-                                    <input type="text" name="name" required placeholder="Nome *">
-                                    <input type="email" name="email" required placeholder="Email *">
-                                    <input type="tel" name="tel" required placeholder="Telefone *" id="telInput"
+                                    <input type="text" name="Nome" required placeholder="Nome Completo *">
+                                    <input type="email" name="Email" required placeholder="Email *">
+                                    <input type="tel" name="Telefone" required placeholder="Telefone *" id="telInput"
                                         oninput="telMask(this)">
-                                    <textarea name="message" required placeholder="Descrição *"></textarea>
+                                    <textarea name="Mensagem" required placeholder="Descrição *"></textarea>
                                 </div>
 
                                 <button type="submit" class="bodyMain">

@@ -76,8 +76,9 @@ button {
         background: rgb(var(--White));
 
         h4 {
-            font: 700 1.5rem/1.5rem var(--font);
+            font: 700 1.25rem/1.25rem var(--font);
             color: rgb(var(--Black));
+            text-wrap: nowrap;
         }
     }
 
@@ -99,8 +100,9 @@ button {
         outline-offset: -1px;
 
         h4 {
-            font: 700 1.5rem/1.5rem var(--font);
+            font: 700 1.25rem/1.25rem var(--font);
             color: rgb(var(--White));
+            text-wrap: nowrap;
         }
     }
 }
@@ -241,6 +243,8 @@ header {
                 height: 3.5vh;
                 padding: 0 2.5vh;
 
+                text-wrap: nowrap;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -285,10 +289,168 @@ header {
             display: none;
 
             div {
-                padding: 2.5vh 3vh;
+                height: fit-content;
+                padding: 2vh 2.5vh;
 
                 img {
-                    height: 3vh;
+                    height: 2vh;
+                }
+            }
+        }
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2.5vh 5vh;
+    border-radius: 3vh;
+    background: linear-gradient(rgba(var(--Black), 1), rgba(var(--Black), 0.25));
+    backdrop-filter: url(#lensFilter) blur(5px) brightness(0.33);
+    border-bottom: 1px solid rgba(var(--White), 0.1);
+    box-shadow:
+        0 5vh 10vh rgba(var(--Black), 0.75),
+        inset 0 -1vh 10vh rgba(var(--White), 0.1);
+
+    /* Estado fechado padrão */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transform: scale(1);
+    }
+
+
+    &>button:first-child {
+        width: fit-content;
+        height: fit-content;
+
+        position: absolute;
+        top: 2.5vh;
+        right: 2.5vh;
+
+        img {
+            height: 3vh;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        gap: 2.5vh;
+        padding: 1.25vh;
+        margin-bottom: 25vh;
+        justify-self: center;
+        align-items: center;
+
+        border-radius: 3vh;
+        background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
+            linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
+        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
+            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+        backdrop-filter: brightness(0.33) blur(15px);
+
+        li {
+            height: 5vh;
+            width: 15vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 2vh;
+            /* background: linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0.05));
+            box-shadow: 0px -2.5px 7.5px rgba(255, 255, 255, 0.1) inset; */
+
+            opacity: 0.25;
+
+            transition: all 0.5s;
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+            &.active {
+                opacity: 1;
+            }
+
+            h1 {
+                font: 300 1.25rem/1.25rem var(--font);
+                height: 3.5vh;
+                padding: 0 2.5vh;
+
+                text-wrap: nowrap;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    &>button {
+        position: absolute;
+        bottom: 5vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: fit-content;
+        justify-self: end;
+
+        div {
+            display: flex;
+            width: fit-content;
+            height: 7.5vh;
+            gap: 2.5vh;
+            padding: 2.5vh 5vh;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 3vh;
+            background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
+                linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
+            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
+                -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+            backdrop-filter: brightness(0.33) blur(15px);
+
+            img {
+                height: 2.5vh;
+            }
+
+            h1 {
+                font: 400 1.5rem/1.5rem var(--font);
+            }
+        }
+
+        &#MenuHeader {
+            display: none;
+
+            div {
+                height: fit-content;
+                padding: 2vh 2.5vh;
+
+                img {
+                    height: 2vh;
                 }
             }
         }
@@ -422,6 +584,8 @@ main {
 
                     h2 {
                         text-align: left;
+                        text-align: justify;
+                        hyphens: auto;
                     }
                 }
 
@@ -517,6 +681,7 @@ main {
                     height: 100%;
                     border-radius: 3vh;
                     opacity: 0.25;
+                    object-fit: cover;
                 }
 
                 hgroup {
@@ -539,6 +704,8 @@ main {
                     h4 {
                         font: 400 1.25rem/1.25rem var(--font);
                         color: rgb(var(--White), 0.75);
+                        text-align: justify;
+                        hyphens: auto;
                     }
 
                     button {
@@ -772,6 +939,8 @@ main {
                         h4 {
                             font: 400 1rem/1rem var(--font);
                             color: rgb(var(--White), 0.75);
+                            text-align: justify;
+                            hyphens: auto;
                         }
 
                         button {
@@ -859,13 +1028,13 @@ main {
 
                     hgroup {
                         height: 100%;
-                        width: 40%;
+                        width: 60%;
 
                         display: flex;
                         flex-direction: column;
                         align-items: end;
                         gap: 5vh;
-                        padding: 2.5vh;
+                        padding: 2.5vh 2.5vh 2.5vh 15vh;
 
                         background: rgb(var(--Black), 0.66);
 
@@ -878,7 +1047,8 @@ main {
                         h4 {
                             font: 400 1.25rem/1.25rem var(--font);
                             color: rgb(var(--White), 0.75);
-                            text-align: end;
+                            text-align: justify;
+                            hyphens: auto;
                         }
 
                         button {
@@ -960,7 +1130,8 @@ main {
                         h2 {
                             font: 200 2vh/2vh var(--font);
                             color: rgb(var(--White));
-                            text-align: left;
+                            text-align: justify;
+                            hyphens: auto;
 
                             span {
                                 font: 500 1.2vh/1.2vh var(--font);

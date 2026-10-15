@@ -1,15 +1,29 @@
-@media (max-width: 1690px) {
+.rotatingCards,
+.rotatingCard,
+header,
+.rowCard,
+.project {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.rotatingCards {
+    will-change: transform;
+}
+
+@media (max-aspect-ratio: 1690/1000) {
     .aboutGrid {
         flex-direction: column-reverse;
         align-items: center;
 
         &>hgroup {
-            max-width: 75vh;
+            max-width: 80vw;
         }
 
         &>div {
             width: fit-content;
-            max-width: 75vh;
+            max-width: 80vw;
         }
     }
 
@@ -17,23 +31,24 @@
         .myProjects .contentProjects .projectsGrid {
             grid-template-columns: 1fr;
             padding: 0 20%;
-
-            .project {
-                width: 100%;
-                aspect-ratio: 15/7;
-            }
         }
 
         .contactMe .gridContact {
             grid-template-columns: 1fr;
-            padding: 0 15%;
+            padding: 0 20%;
         }
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-aspect-ratio: 1200/1000) {
     header {
         grid-template-columns: 1fr 1fr;
+        padding: 0 7.5vw;
+        height: 12.5vh;
+
+        img {
+            height: 4vh;
+        }
 
         ul,
         #ContactHeader {
@@ -42,6 +57,63 @@
 
         button#MenuHeader {
             display: flex;
+        }
+    }
+
+    .banner {
+        margin-top: -5vh;
+        height: 120vh;
+
+        hgroup {
+            h1 {
+                font: 700 6rem/6rem var(--fontPixel);
+            }
+
+            h2 {
+                font: 400 2rem/2rem var(--fontPixel);
+            }
+        }
+    }
+
+    main {
+        figure {
+            height: 500vh;
+            aspect-ratio: 1;
+        }
+
+
+        .myHabilities .rowCards .rowCard {
+            aspect-ratio: 35/45;
+            padding-left: 25vw;
+
+            hgroup h4 {
+                font: 400 1rem/1rem var(--font);
+                color: rgb(var(--White), 0.75);
+            }
+        }
+
+        .myProjects {
+            .rotatingCards .rotatingCard img {
+                filter: blur(2px) brightness(0.75) grayscale(0.75);
+                backdrop-filter: blur(5px) brightness(0.33);
+            }
+
+            .contentProjects {
+                .projectsGrid .project {
+                    max-width: 80vw;
+                    aspect-ratio: 35/45;
+                    padding-left: 25vw;
+                }
+
+                .designGrafico .App hgroup {
+                    width: 75%;
+                    padding: 2.5vh 2.5vh 2.5vh 5vh;
+                }
+            }
+        }
+
+        footer {
+            height: 50vh;
         }
     }
 }
