@@ -482,7 +482,8 @@ main {
 
             .rowCard {
                 width: 75vh;
-                height: 35vh;
+                max-width: 90vw;
+                aspect-ratio: 75/35;
                 padding-left: 25vh;
                 border-radius: 3vh;
                 position: relative;
@@ -588,7 +589,7 @@ main {
                 transform: translate(-50%, -50%);
 
                 width: 100vw;
-                padding: 0 10vh;
+                padding: 0 5vw;
 
                 display: flex;
                 align-items: center;
