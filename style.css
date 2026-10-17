@@ -121,7 +121,7 @@ li {
 
     border-radius: 2.5vh;
     background: linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0.05));
-    box-shadow: 0px -2.5px 7.5px rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0px -2.5px 7.5px rgba(var(--White), 0.1) inset;
 
     img {
         height: 2vh;
@@ -210,8 +210,8 @@ header {
         border-radius: 3vh;
         background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
             linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
-        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+        box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+            -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
         backdrop-filter: brightness(0.33) blur(15px);
 
         li {
@@ -223,8 +223,6 @@ header {
             justify-content: center;
 
             border-radius: 2vh;
-            /* background: linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0.05));
-            box-shadow: 0px -2.5px 7.5px rgba(255, 255, 255, 0.1) inset; */
 
             opacity: 0.25;
 
@@ -272,8 +270,8 @@ header {
             border-radius: 3vh;
             background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
                 linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
-            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+            box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+                -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
             backdrop-filter: brightness(0.33) blur(15px);
 
             img {
@@ -323,7 +321,6 @@ nav {
         0 5vh 10vh rgba(var(--Black), 0.75),
         inset 0 -1vh 10vh rgba(var(--White), 0.1);
 
-    /* Estado fechado padrão */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -364,8 +361,8 @@ nav {
         border-radius: 3vh;
         background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
             linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
-        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+        box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+            -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
         backdrop-filter: brightness(0.33) blur(15px);
 
         li {
@@ -377,8 +374,6 @@ nav {
             justify-content: center;
 
             border-radius: 2vh;
-            /* background: linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0.05));
-            box-shadow: 0px -2.5px 7.5px rgba(255, 255, 255, 0.1) inset; */
 
             opacity: 0.25;
 
@@ -429,8 +424,8 @@ nav {
             border-radius: 3vh;
             background: linear-gradient(rgb(var(--Black), 0.5), rgb(var(--Black), 0.5)),
                 linear-gradient(rgb(var(--White), 0.33), rgb(var(--White), 0.1));
-            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+            box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+                -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
             backdrop-filter: brightness(0.33) blur(15px);
 
             img {
@@ -658,8 +653,8 @@ main {
                 overflow: hidden;
 
                 box-shadow:
-                    1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                    -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                    1px 1px 2px rgba(var(--White), 0.1) inset,
+                    -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
                 opacity: 0.8;
                 filter: brightness(0.25) grayscale(0.33) blur(5px);
 
@@ -670,8 +665,8 @@ main {
                     filter: none;
 
                     box-shadow: 0 0 25vh 10vh rgb(var(--White), 0.1),
-                        1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                        -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                        1px 1px 2px rgba(var(--White), 0.1) inset,
+                        -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
                 }
 
                 img {
@@ -907,16 +902,16 @@ main {
                     overflow: hidden;
 
                     box-shadow: 0 0 10vh rgb(var(--White), 0.05),
-                        1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                        -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                        1px 1px 2px rgba(var(--White), 0.1) inset,
+                        -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
                     transition: all 0.25s ease-in;
                     filter: brightness(0.8) grayscale(0.5);
                     backdrop-filter: blur(15px);
 
                     &:hover {
                         box-shadow: 0 0 10vh rgb(var(--White), 0.1),
-                            1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                            1px 1px 2px rgba(var(--White), 0.1) inset,
+                            -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
                         filter: brightness(1) grayscale(0);
                     }
 
@@ -1113,8 +1108,8 @@ main {
 
                     background: linear-gradient(rgb(var(--White), 0.2), rgb(var(--White), 0.1));
                     box-shadow: 0 0 7.5vh 2.5vh rgb(var(--White), 0.1),
-                        1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                        -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                        1px 1px 2px rgba(var(--White), 0.1) inset,
+                        -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
 
                     hgroup {
                         display: flex;
@@ -1151,8 +1146,8 @@ main {
                             border: none;
                             border-radius: 2.5vh;
                             background: linear-gradient(rgb(var(--White), 0.2), rgb(var(--White), 0.1));
-                            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                                -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                            box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+                                -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
 
                             font: 400 1.6vh/1.6vh var(--font);
                             color: rgb(var(--White));
@@ -1209,8 +1204,8 @@ main {
 
                     background: linear-gradient(rgb(var(--White), 0.2), rgb(var(--White), 0.1));
                     box-shadow: 0 0 7.5vh 2.5vh rgb(var(--White), 0.1),
-                        1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                        -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                        1px 1px 2px rgba(var(--White), 0.1) inset,
+                        -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
 
                     opacity: 0;
                     visibility: hidden;
@@ -1262,8 +1257,8 @@ main {
 
                     background: linear-gradient(rgb(var(--White), 0.2), rgb(var(--White), 0.1));
                     box-shadow: 0 0 5vh rgb(var(--White), 0.15),
-                        1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-                        -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+                        1px 1px 2px rgba(var(--White), 0.1) inset,
+                        -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
 
                     opacity: 0.66;
                     transition: all 0.25s ease-in;
@@ -1317,8 +1312,8 @@ main {
         background: linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0)),
             linear-gradient(rgb(var(--Black)), rgb(var(--Black)));
         box-shadow: 0 0 25vh rgb(var(--Black), 0.15),
-            1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+            1px 1px 2px rgba(var(--White), 0.1) inset,
+            -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
         border-radius: 5vh 5vh 0 0;
 
         div {
@@ -1356,6 +1351,394 @@ main {
     }
 }
 
+#AdobeLightroomProjects {
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: brightness(0.25) grayscale(0.75) blur(5px);
+    top: 0vh;
+    left: 0vw;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    touch-action: none;
+    transition: opacity 0.5s, visibility 0.5s;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    #LightroomDetailsLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2000;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+
+        background: rgba(var(--Black), 0.75);
+        backdrop-filter: blur(10px);
+
+        touch-action: auto;
+
+        transition: opacity 0.4s, visibility 0.4s;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+
+        .detailsContent {
+            position: relative;
+            width: 80vw;
+            height: 90vh;
+
+            display: flex;
+            padding: 2.5vh;
+            gap: 2.5vh;
+
+            background: linear-gradient(rgb(var(--White), 0.15), rgb(var(--White), 0.05)),
+                linear-gradient(rgb(var(--Black)), rgb(var(--Black)));
+            box-shadow: 0 0 10vh 1.5vh rgb(var(--White), 0.2),
+                1px 1px 2px rgba(var(--White), 0.1) inset,
+                -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
+            border-radius: 3vh;
+
+            will-change: transform, opacity;
+
+            #CloseDetailsBtn {
+                position: absolute;
+                top: 2.5vh;
+                right: 2.5vh;
+                z-index: 10;
+
+                width: 5vh;
+                height: 5vh;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background: rgba(var(--White), 0.1);
+                border-radius: 50%;
+                transition: background 0.3s;
+                box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+                    -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
+
+                &:hover {
+                    background: rgba(var(--White), 0.2);
+                }
+
+                img {
+                    height: 2vh;
+                }
+            }
+        }
+
+        .photoArea {
+            flex: 2;
+            height: 100%;
+            border-radius: 1.5vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--Black), 0.5);
+            box-shadow: inset 0 0 5vh rgba(var(--Black), 0.5);
+            position: relative;
+            touch-action: none;
+            cursor: ew-resize;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                pointer-events: none;
+            }
+
+            #DetailImageOriginal {
+                clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+            }
+
+            .comparisonSlider {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: var(--pos, 50%);
+                transform: translateX(-50%);
+                z-index: 10;
+
+                width: 0.25vh;
+
+                background: rgba(var(--White), 0.8);
+                box-shadow: 0 0 1vh rgba(var(--Black), 0.5);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+
+                .sliderHandle {
+                    width: 4vh;
+                    aspect-ratio: 1;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    border-radius: 50%;
+
+                    box-shadow: 0 0 1vh rgba(var(--Black), 0.5);
+                    background: rgba(var(--White), 0.9);
+
+                    svg {
+                        width: 2.5vh;
+                        height: 2.5vh;
+                        color: rgb(var(--Black));
+                    }
+                }
+            }
+
+            .comparisonLabels {
+                position: absolute;
+                bottom: 2.5vh;
+                left: 2.5vh;
+                right: 2.5vh;
+                display: flex;
+                justify-content: space-between;
+                pointer-events: none;
+                z-index: 5;
+
+                span {
+                    background: rgba(var(--Black), 0.5);
+                    color: rgba(var(--White), 0.8);
+                    padding: 0.75vh 1.5vh;
+                    border-radius: 1.5vh;
+                    font: 400 1.6vh/1.6vh var(--font);
+                    backdrop-filter: blur(5px);
+                    box-shadow: 0 0 1vh rgba(var(--Black), 0.5);
+                }
+            }
+        }
+
+        .infoArea {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5vh;
+            padding: 5vh 5vh 2.5vh 2.5vh;
+
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgb(var(--White), 0.25) transparent;
+
+            h1 {
+                font: 600 4.8vh/4.8vh var(--fontPixel);
+                color: rgb(var(--White));
+            }
+
+            h2 {
+                font: 400 2vh/2.5vh var(--font);
+                color: rgb(var(--White), 0.75);
+            }
+
+            p {
+                font: 300 2vh/2.5vh var(--font);
+                color: rgb(var(--White), 0.85);
+                text-align: justify;
+                hyphens: auto;
+            }
+
+            h3,
+            h4 {
+                font: 400 1.8vh/2.2vh var(--font);
+                color: rgb(var(--White), 0.6);
+            }
+        }
+    }
+
+    .rotatingCards {
+        position: absolute;
+        bottom: -40%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        will-change: transform;
+
+        .rotatingCard {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 120vh;
+
+            .imageLightroom {
+                border-radius: 3vh;
+                width: 25vh;
+                aspect-ratio: 9/16;
+                padding: 1.5vh;
+
+                display: flex;
+                flex-direction: column;
+                gap: 1.5vh;
+
+                filter: brightness(0.75) grayscale(0.75) blur(5px);
+
+                background: linear-gradient(rgb(var(--White), 0.15), rgb(var(--White), 0.05)),
+                    linear-gradient(rgb(var(--Black)), rgb(var(--Black)));
+                box-shadow: 0 0 10vh 1.5vh rgb(var(--White), 0.2),
+                    1px 1px 2px rgba(var(--White), 0.1) inset,
+                    -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
+                
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 3/4;
+                    border-radius: 1.5vh;
+                    pointer-events: none;
+                }
+
+                h1 {
+                    font: 600 3.2vh/3.2vh var(--fontPixel);
+                    color: rgb(var(--White), 0.5);
+                    padding-left: 0.5vh;
+                }
+
+                h2 {
+                    font: 400 2vh/2vh var(--font);
+                    color: rgb(var(--White), 0.5);
+                    padding-left: 0.5vh;
+                }
+
+                &.focus {
+                    position: relative;
+                    z-index: 1002;
+                }
+
+                &.active {
+                    opacity: 0 !important;
+                    pointer-events: none !important;
+                }
+            }
+
+            &:nth-child(1) {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            &:nth-child(2) {
+                transform: translate(-50%, -50%) rotate(30deg);
+            }
+
+            &:nth-child(3) {
+                transform: translate(-50%, -50%) rotate(60deg);
+            }
+
+            &:nth-child(4) {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+            &:nth-child(5) {
+                transform: translate(-50%, -50%) rotate(120deg);
+            }
+
+            &:nth-child(6) {
+                transform: translate(-50%, -50%) rotate(150deg);
+            }
+        }
+    }
+
+    .planetProject {
+        position: absolute;
+        bottom: -40%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 100vh;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle at center 10%,
+                rgb(var(--White), 0.33) 0%,
+                rgb(200, 200, 200, 0.33) 15%,
+                rgb(100, 100, 100, 0.33) 50%,
+                rgb(var(--Black), 0.33) 100%),
+            linear-gradient(rgb(var(--Black)));
+        box-shadow: 0 0 15vh rgba(var(--Black), 0.75),
+            0 0.5vh 10vh rgb(var(--White), 0.33) inset;
+        opacity: 0;
+    }
+
+    .controlArrows {
+        position: absolute;
+        z-index: 1003;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        padding: 0 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+        opacity: 0;
+
+        button {
+            width: fit-content;
+            height: fit-content;
+            pointer-events: all;
+            cursor: pointer;
+
+            &:first-child {
+                transform: scaleX(-1);
+            }
+
+            svg {
+                fill: white;
+                fill-opacity: 0.5;
+                width: 3vh;
+                height: 3vh;
+            }
+        }
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgb(var(--Black), 0) 0%, rgb(var(--Black), 0.75) 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        pointer-events: none;
+    }
+}
+
 .languagesCards {
     position: fixed;
     bottom: 5vh;
@@ -1377,8 +1760,8 @@ main {
         border-radius: 3.5vh;
         background: linear-gradient(rgb(var(--Black), 0.1), rgb(var(--Black), 0.1)),
             linear-gradient(rgb(var(--White), 0.1), rgb(var(--White), 0));
-        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1) inset,
-            -0.5px -0.5px 1px rgba(255, 255, 255, 0.1) inset;
+        box-shadow: 1px 1px 2px rgba(var(--White), 0.1) inset,
+            -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
         backdrop-filter: url(#lensFilter) blur(15px);
 
         pointer-events: all;

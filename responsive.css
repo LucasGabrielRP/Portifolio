@@ -116,4 +116,29 @@ header,
             height: 50vh;
         }
     }
+
+    #AdobeLightroomProjects #LightroomDetailsLayer .detailsContent {
+        flex-direction: column;
+        width: 90vw;
+        height: 85vh;
+        padding: 2.5vh;
+        gap: 1.5vh;
+    }
+
+    #AdobeLightroomProjects #LightroomDetailsLayer .detailsContent .photoArea {
+        flex: 1.5;
+        height: auto;
+    }
+
+    #AdobeLightroomProjects #LightroomDetailsLayer .detailsContent .infoArea {
+        flex: 1;
+        padding: 1.5vh;
+        gap: 1.5vh;
+    }
+
+    #AdobeLightroomProjects #LightroomDetailsLayer .detailsContent #CloseDetailsBtn {
+        top: 3.5vh;
+        right: 3.5vh;
+        background: rgba(var(--Black), 0.5); 
+    }
 }
