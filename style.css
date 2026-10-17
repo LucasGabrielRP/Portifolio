@@ -1461,7 +1461,7 @@ main {
             box-shadow: inset 0 0 5vh rgba(var(--Black), 0.5);
             position: relative;
             touch-action: none;
-            cursor: ew-resize;
+            cursor: default;
 
             img {
                 position: absolute;
@@ -1475,6 +1475,25 @@ main {
 
             #DetailImageOriginal {
                 clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+            }
+
+            #DetailImageOriginal,
+            .comparisonSlider,
+            .comparisonLabels .labelBefore {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &.comparisonReady {
+                cursor: ew-resize;
+
+                #DetailImageOriginal,
+                .comparisonSlider,
+                .comparisonLabels .labelBefore {
+                    opacity: 1;
+                    visibility: visible;
+                    transition: opacity 0.3s;
+                }
             }
 
             .comparisonSlider {
@@ -1615,7 +1634,7 @@ main {
                 box-shadow: 0 0 10vh 1.5vh rgb(var(--White), 0.2),
                     1px 1px 2px rgba(var(--White), 0.1) inset,
                     -0.5px -0.5px 1px rgba(var(--White), 0.1) inset;
-                
+
                 cursor: pointer;
 
                 img {

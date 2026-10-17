@@ -819,13 +819,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const imgEl = imgCard.querySelector('img');
       const imgSrcEdited = imgEl.getAttribute('src');
-      const imgSrcOriginal = imgSrcEdited.replace('-edited.jpg', '-original.jpg');
 
       const data = getLrData(imgSrcEdited);
       const htmlTitle = imgCard.querySelector('h1').innerText;
 
       detailImageEdited.setAttribute('src', imgSrcEdited);
-      detailImageOriginal.setAttribute('src', imgSrcOriginal);
+      loadDetailOriginal(getLrOriginalSrc(imgSrcEdited));
       updateSliderPosition(50);
 
       detailTitle.innerText = htmlTitle !== "Foto 01" ? htmlTitle : data.title;
@@ -870,6 +869,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to(detailContent, {
       x: endX, y: endY, scale: 0.2, opacity: 0, duration: 0.4, ease: "power2.in",
       onComplete: () => {
+        resetDetailOriginal();
         detailLayer.classList.remove('active');
         activeImageCard.classList.remove('active');
         activeImageCard = null;
@@ -904,7 +904,84 @@ document.addEventListener("DOMContentLoaded", () => {
     sliderLine.style.setProperty('--pos', percent + '%');
   }
 
+  let detailRequestId = 0;
+  const lrPreloadedOriginals = new Set();
+
+  function getLrOriginalSrc(editedSrc) {
+    return editedSrc.replace(/-edited\.jpg$/, '-original.jpg');
+  }
+
+  function preloadLrOriginal(imgCard) {
+    const editedImg = imgCard && imgCard.querySelector('img');
+    if (!editedImg) return;
+
+    const src = getLrOriginalSrc(editedImg.getAttribute('src'));
+    if (lrPreloadedOriginals.has(src)) return;
+
+    lrPreloadedOriginals.add(src);
+    const loader = new Image();
+    loader.onerror = () => lrPreloadedOriginals.delete(src);
+    loader.src = src;
+  }
+
+  function isCurrentDetailOriginal(requestId, src) {
+    if (requestId !== detailRequestId || !isDetailOpen || !activeImageCard) return false;
+
+    const activeImg = activeImageCard.querySelector('img');
+    return !!activeImg
+      && getLrOriginalSrc(activeImg.getAttribute('src')) === src
+      && detailImageOriginal.getAttribute('src') === src;
+  }
+
+  function resetDetailOriginal() {
+    detailRequestId++;
+    isSliderDragging = false;
+    photoArea.classList.remove('comparisonReady');
+    detailImageOriginal.onload = null;
+    detailImageOriginal.onerror = null;
+    detailImageOriginal.removeAttribute('src');
+  }
+
+  function loadDetailOriginal(src) {
+    resetDetailOriginal();
+    const requestId = detailRequestId;
+
+    const reveal = () => {
+      if (isCurrentDetailOriginal(requestId, src)) {
+        photoArea.classList.add('comparisonReady');
+      }
+    };
+
+    detailImageOriginal.onload = () => {
+      if (!isCurrentDetailOriginal(requestId, src)) return;
+
+      if (typeof detailImageOriginal.decode === 'function') {
+        detailImageOriginal.decode().then(reveal, reveal);
+      } else {
+        reveal();
+      }
+    };
+
+    detailImageOriginal.onerror = () => {
+      if (requestId !== detailRequestId) return;
+      photoArea.classList.remove('comparisonReady');
+      detailImageOriginal.removeAttribute('src');
+    };
+
+    detailImageOriginal.setAttribute('src', src);
+  }
+
+  lrImagesOrdered.forEach(imgCard => {
+    imgCard.addEventListener('pointerenter', () => {
+      if (imgCard.classList.contains('focus') && !isDetailOpen) {
+        preloadLrOriginal(imgCard);
+      }
+    });
+  });
+
   photoArea.addEventListener('pointerdown', (e) => {
+    if (!photoArea.classList.contains('comparisonReady')) return;
+
     isSliderDragging = true;
     try { photoArea.setPointerCapture(e.pointerId); } catch (err) { }
     handleSliderMove(e);
@@ -947,6 +1024,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       updateLrVisuals(lrCurrentAngle);
       gsap.killTweensOf([planetLr, cardsLr, arrowsLr]);
+      preloadLrOriginal(lrImagesOrdered.find(img => img.classList.contains('focus')));
 
       gsap.set(planetLr, { y: 200, opacity: 0, scale: 0.9 });
       gsap.set(cardsLr, { y: 50, opacity: 0, scale: 0.8 });
